@@ -50,13 +50,16 @@ For the images/videos
 ```js
 async function genshin() {
   const response = await fetch('https://api.pellinuz.repl.co/api?type=genshin');
-  if (response.ok) {
-    const image_url = (await response.json()).message;
-    return image_url;
+  if (response.status === 200) {
+    const data = await response.json();
+    const imageUrl = data.message.toString();
+    return imageUrl;
   } else {
     console.log('Error getting random image');
+    return null;
   }
 }
+
 ```
 
 For color
