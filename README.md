@@ -12,7 +12,7 @@ def genshin():
     response = requests.get('https://api.pellinuz.repl.co/api/type=genshin')
     if response.status_code == 200:
         image_url = response.json()['message']
-        image_url = random.choice("message")
+        image_url = str(image_url)
     else:
         print('Error getting random image')
     return image_url
